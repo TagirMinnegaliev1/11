@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Вычисление цены товара со скидкой</title>
+  <style>
+    #originalPrice, #discountPercentage, #calculateButton {
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Вычисление цены товара со скидкой</h1>
+  
+  <label for="originalPrice">Цена товара:</label>
+  <input type="number" id="originalPrice">
+  
+  <label for="discountPercentage">Скидка (%):</label>
+  <input type="number" id="discountPercentage">
+  
+  <button id="calculateButton">Вычислить</button>
+  
+  <p id="result"></p>
+  
+  <script>
+    document.getElementById("calculateButton").addEventListener("click", function() {
+      var originalPrice = parseFloat(document.getElementById("originalPrice").value);
+      var discountPercentage = parseFloat(document.getElementById("discountPercentage").value);
+      
+      var discountAmount = originalPrice * (discountPercentage / 100);
+      var finalPrice = originalPrice - discountAmount;
+      
+      document.getElementById("result").textContent = "Цена со скидкой: " + finalPrice.toFixed(2);
+    });
+  </script>
+</body>
+</html>
